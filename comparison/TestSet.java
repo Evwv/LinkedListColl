@@ -10,12 +10,8 @@ public class TestSet {
         Set<Integer> linkedHashSet = new LinkedHashSet<>();
         Set<Integer> treeSet = new TreeSet<>();
 
-        testSet.create(hashSet,size);
-        testSet.create(linkedHashSet,size);
-        testSet.create(treeSet,size);
-
         System.out.println("Добавление элемента");
-        testSet.time(testSet.add(hashSet),testSet.add(linkedHashSet),testSet.add(treeSet));
+        testSet.time(testSet.add(hashSet,size),testSet.add(linkedHashSet,size),testSet.add(treeSet,size));
         System.out.println("Удаление последнего элемента");
         testSet.time(testSet.remove(hashSet,size),testSet.remove(linkedHashSet,size),testSet.remove(treeSet,size));
         System.out.println("Проерка на содержание элемента в коллекции");
@@ -28,7 +24,9 @@ public class TestSet {
         }
     }
 
-    long  add(Set<Integer> set) {
+    long  add(Set<Integer> set, int size) {
+        TestSet testSet = new TestSet();
+        testSet.create(set,size);
         long start = System.nanoTime();
         set.add(11);
         long end = System.nanoTime() - start;

@@ -3,9 +3,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class MyLinkedList<E> implements ILinkedList<E> {
-    private transient int size = 0;
-    private transient Node<E> first;
-     private transient Node<E> last;
+    private  int size = 0;
+    private  Node<E> first;
+    private  Node<E> last;
 
     @Override
     public void add(E e) {

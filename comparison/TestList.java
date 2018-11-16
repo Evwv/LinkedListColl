@@ -11,16 +11,12 @@ public class TestList {
         List<String> linkedList = new LinkedList<>();
         List<String> arrayList = new ArrayList<>();
 
-        testList.create(linkedList,size);
-        testList.create(arrayList,size);
-
         System.out.println("Добавление элемента");
-        testList.time(testList.add(linkedList),testList.add(arrayList));
+        testList.time(testList.add(linkedList, size),testList.add(arrayList, size));
         System.out.println("Удаление элемента");
         testList.time(testList.remove(linkedList,size),testList.remove(arrayList,size));
         System.out.println("Вставка элемента в середину");
         testList.time(testList.set(linkedList,size),testList.remove(arrayList,size));
-
     }
 
     void create(List<String> list, int size) {
@@ -29,7 +25,9 @@ public class TestList {
         }
     }
 
-    long  add(List<String> list) {
+    long  add(List<String> list, int size) {
+        TestList testList = new TestList();
+        testList.create(list,size);
         long start = System.nanoTime();
         list.add("test2");
         long end = System.nanoTime() - start;

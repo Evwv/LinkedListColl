@@ -10,10 +10,6 @@ public class TestMap {
         Map<Integer,String> linkedHashMap = new LinkedHashMap<>();
         Map<Integer,String> treeMap = new TreeMap<>();
 
-        testMap.create(hashMap,size);
-        testMap.create(linkedHashMap,size);
-        testMap.create(treeMap,size);
-
         System.out.println("Добавление элемента");
         testMap.time(testMap.put(hashMap,size),testMap.put(linkedHashMap,size),testMap.put(treeMap,size));
         System.out.println("Удаление последнего элемента");
@@ -28,6 +24,8 @@ public class TestMap {
     }
 
     long  put(Map<Integer,String> map,int size) {
+        TestMap testMap = new TestMap();
+        testMap.create(map,size);
         long start = System.nanoTime();
         map.put(size-1,"test2");
         long end = System.nanoTime() - start;
